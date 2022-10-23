@@ -17,11 +17,11 @@ $msg="";
    $dept_id=$ans['id'];
 
    $check=mysqli_num_rows(mysqli_query($con,"select * from employee where email='$email'"));
-
+   
    if($check>0){
    $msg="Email Already exists!!";   
    }elseif(isset($_POST['submit'])){
-		mysqli_query($con,"insert into employee(name,email,mobile,password,department_id,address,birthday,role) values('$name','$email','$mobile','$password','$dept_id','$address','$DOB','2')");
+		mysqli_query($con,"insert into employee(name,email,mobile,password,department_id,address,birthday,sick_count,casual_count,earned_count,role) values('$name','$email','$mobile','$password','$dept_id','$address','$DOB','10','5','8','2')");
       header('location:login.php');
 
    }
@@ -48,7 +48,7 @@ $msg="";
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="assets/css/style.css">
    </head>
-   <body class="bg-dark" style="background-image:url('images/background.jpg');background-position:center;height:500px;background-repeat:no-repeat;background-size:cover;">
+   <body class="bg-dark" style="background-image:url('images/background.jpg');background-position:center;height:100vh;background-repeat:no-repeat;background-size:cover;">
       <div class="sufee-login d-flex align-content-center flex-wrap">
       <div class="login-img" style="margin:20px auto;">
             <img src="./images/logo.png" style="height: 123px;width: 530px; border-radius: 16px;" alt="" >
@@ -86,9 +86,9 @@ $msg="";
                      <div class="form-group">
                         <label>Department:</label>
                         <select name="department" style="width:200px" required>
-                        <option value="Sales Department">Sales</option>
-                        <option value="PR Department">PR</option>
-                        <option value="HR Department">HR</option>
+                        <option value="Computer Department">Computer</option>
+                        <option value="Mechanical Department">Mechanical</option>
+                        <option value="Civil Department">Civil</option>
                     </select>
                      </div>
       
@@ -96,7 +96,7 @@ $msg="";
                         <label>Date of Birth</label>
                         <input type="date" name="DOB" class="form-control" placeholder="DOB" required>
                      </div>
-                     <button type="submit" name="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+                     <button type="submit" name="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign Up</button>
                      <a href="login.php" style="margin-left:130px;color:blue;">Already have an Account</a>
                      
 					 <div class="result_msg"><?php echo $msg?></div>
