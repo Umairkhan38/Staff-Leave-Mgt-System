@@ -56,6 +56,9 @@ $res=mysqli_query($con,$sql);
 								<h4 class="box_title_link" style="margin-top:5px;font-weight:550;padding:9px;background-color:green;border-radius:3px;width:103%"><a style="color:white;" href="add_leave.php">Apply Leave</a> </h4>
 								<?php } ?>
 								</div>
+					
+
+								<?php if($_SESSION['ROLE']==2){  ?>
 
 								<div class="table-stats order-table ov-h" style="margin-left:40px;width:50%;border:2px solid black;">
                               <table class="table"  >
@@ -75,9 +78,9 @@ $res=mysqli_query($con,$sql);
 
 								</div>
 						   </div>
+								<?php } ?>
 
-
-                        <div class="card-body">
+                        <div class="card-body" style="margin-top:30px;">
                            <div class="table-stats order-table ov-h">
                               <table class="table ">
                                  <thead>
